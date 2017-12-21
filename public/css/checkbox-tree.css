@@ -1,0 +1,111 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  outline: none;
+  font: 16px "Calibri";
+  font-weight: lighter;
+  list-style-type: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e39900;
+  overflow: hidden;
+  overflow-y: auto;
+  color: #bbb;
+}
+
+.controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 1;
+  padding: 6px 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+button {
+  border: 0px;
+  color: #e13300;
+  margin: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  background: transparent;
+}
+
+button.active,
+button.active:hover {
+  background: #e13300;
+  color: #fff;
+}
+
+button:hover {
+  background: #efefef;
+}
+
+input[type=checkbox] {
+  vertical-align: middle !important;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: lighter;
+  color: #fff;
+  text-align: center;
+  display: block;
+  padding: 40px 0px;
+  margin-top: 40px;
+}
+
+.tree {
+  margin: 2% auto;
+  width: 80%;
+}
+
+.tree ul {
+  display: none;
+  margin: 4px auto;
+  margin-left: 6px;
+  border-left: 1px dashed #dfdfdf;
+}
+
+
+.tree li {
+  padding: 12px 18px;
+  cursor: pointer;
+  vertical-align: middle;
+  background: #fff;
+}
+
+.tree li:first-child {
+  border-radius: 3px 3px 0 0;
+}
+
+.tree li:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+.tree .active,
+.active li {
+  background: #efefef;
+}
+
+.tree label {
+  cursor: pointer;
+}
+
+.tree input[type=checkbox] {
+  margin: -2px 6px 0 0px;
+}
+
+.has > label {
+  color: #000;
+}
+
+.tree .total {
+  color: #e13300;
+}
