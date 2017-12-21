@@ -173,8 +173,8 @@
                                                     <td>{{ $quotation_detail->article->name }}</td>
                                                     <td>{{ $quotation_detail->article->description }}</td>
                                                     <td>{{ $quotation_detail->quantity }}</td>
-                                                    <td align="right">{{ $quotation_detail->unit_price }}</td>
-                                                    <td align="right">{{ $quotation_detail->subtotal }}</td>
+                                                    <td align="right">{{ number_format($quotation_detail->unit_price,2) }}</td>
+                                                    <td align="right">{{ number_format($quotation_detail->subtotal,2) }}</td>
                                                 </tr>
                                                 @endforeach
                                                 </tbody>

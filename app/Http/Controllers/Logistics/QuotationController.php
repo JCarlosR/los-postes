@@ -63,6 +63,7 @@ class QuotationController extends Controller
         $total = 0;
         foreach ($quotation_details as $quotation_detail)
             $total = $total + $quotation_detail->subtotal;
+
         return view('Logistics.quotation.detail')->with(compact('quotation','articles','quotation_details', 'total'));
     }
 }

@@ -113,7 +113,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="phone">Teléfono</label>
-                                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Ingrese teléfono" value="{{ old('phone') }}">
+                                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingrese teléfono" value="{{ old('phone') }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
