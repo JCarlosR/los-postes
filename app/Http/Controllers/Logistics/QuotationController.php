@@ -60,6 +60,9 @@ class QuotationController extends Controller
         $quotation = Quotation::find($id);
         $quotation_details = QuotationDetail::where('quotation_id', $quotation->id)->get();
         //dd($quotation_details);
-        return view('Logistics.quotation.detail')->with(compact('quotation','articles','quotation_details'));
+        $total = 0;
+        foreach ($quotation_details as $quotation_detail)
+            $total = $total + $quotation_detail->subtotal;
+        return view('Logistics.quotation.detail')->with(compact('quotation','articles','quotation_details', 'total'));
     }
 }
