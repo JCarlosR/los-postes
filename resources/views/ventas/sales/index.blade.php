@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    Orden de compra
+    Orden de Venta
 @endsection
 
 @section('content')

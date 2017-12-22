@@ -90,7 +90,7 @@
             <!-- User -->
             <div class="user-box">
                     <div class="user-img">
-                        <img src="{{ asset('images/users/1.jpg') }}" alt="user-img" title="{{ auth()->user()->name }}" class="img-circle img-thumbnail img-responsive">
+                        <img src="{{ asset('images/users/admin.jpg') }}" alt="user-img" title="{{ auth()->user()->name }}" class="img-circle img-thumbnail img-responsive">
                     </div>
                 <h5><a href="">{{ auth()->user()->name }}</a></h5>
                 <h6>{{ auth()->user()->role_name }}</h6>

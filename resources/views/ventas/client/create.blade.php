@@ -88,7 +88,7 @@
                                 <small id="fileHelp" class="form-text text-muted">Cargue archivos formato imagen.</small>
                             </div>
                             <div class="form-group">
-                                <a href="/cientes" class="btn btn-default">
+                                <a href="/clientes" class="btn btn-default">
                                     Cancelar
                                 </a>
                                 <button class="btn btn-primary">

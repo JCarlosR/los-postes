@@ -5,7 +5,7 @@
 
 @section('page-title')
 
-    <a href="/productos">Artículos</a> >
+    <a href="/productos">Productos</a> >
     {{ $product->name }} >
     <i class="fa fa-edit m-r-5"></i>Editar
 @endsection
@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="card-box">
-                                <h4 class="header-title m-t-0 m-b-30">Datos del artículo</h4>
+                                <h4 class="header-title m-t-0 m-b-30">Datos del Producto</h4>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
