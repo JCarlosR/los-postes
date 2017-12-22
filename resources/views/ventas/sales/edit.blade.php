@@ -1,9 +1,52 @@
 @extends('layouts.app')
 
 @section('page-title')
-    <a href="/cotizacion">Cotización</a> > Crear
+    <a href="/ventas">Venta</a> > Editar
 @endsection
 @section('content')
+        <!-- modal Nuevo -->
+        <div id="panel-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content p-0 b-0">
+                    <div class="panel panel-color panel-primary">
+                        <div class="panel-heading">
+                            <button type="button" class="close m-t-5" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 class="panel-title">Nueva artículo</h3>
+                        </div>
+                        <form role="form" action="/ventas/{{$sale->id}}/editar" method="POST">
+                            {{ csrf_field() }}
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="nombre" class="control-label">Producto</label>
+                                <select class="form-control select2" name="product_id">
+                                    <option>Seleccionar</option>
+                                    @foreach($products as $product)
+                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="quantity" class="control-label">Cantidad</label>
+                                        <input type="number" name="quantity" class="form-control" id="quantity" value="{{ old('quantity') }}" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="form-group">
+                                <button class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button class="btn btn-primary waves-effect waves-light">Registrar</button>
+                            </div>
+
+                        </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
 
 <div class="content-page">
     <!-- Start content -->
@@ -35,68 +78,65 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <form role="form" action="" method="POST">
-                                    {{ csrf_field() }}
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="name">Señor(es)</label>
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre" value="{{ old('name') }}" required>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="phone">Teléfono</label>
-                                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingrese teléfono" value="{{ old('phone') }}" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Fecha</label>
-                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date" value="{{ old('date', date('Y/m/d')) }}" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label class="control-label">Plazo de entrega</label>
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker" name="deliver_date" value="{{ old('deliver_date', date('Y/m/d')) }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="days">Válida por</label>
-                                                <input type="number" class="form-control" id="days" name="days" placeholder="Ingrese número de días" value="{{ old('days') }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <p>Forma de pago</p>
-                                                <div class="col-md-3">
-                                                    <div class="radio radio-info">
-                                                        <input id="1" type="radio" name="payment"
-                                                               value="CRE" required>
-                                                        <label for="1" class="m-b-5">crédito</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="radio radio-info">
-                                                        <input id="2" type="radio" name="payment"
-                                                               value="CON">
-                                                        <label for="2" class="m-b-5">contado</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <div class="pull-right">
-                                                <a href="/cotizacion" class="btn btn-inverse waves-effect waves-light">Volver</a>
-                                                <button class="btn btn-primary waves-effect waves-light">Guardar</button>
-                                            </div>
+                                            <label for="name">Señor(es)</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre" value="{{ old('name', $sale->client->name) }}" readonly>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Fecha</label>
+                                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date" value="{{ old('date', $sale->date) }}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <button class="btn btn-primary waves-effect waves-light"
+                                            data-toggle="modal"  data-target="#panel-modal">Nuevo artículo</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table m-t-5">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Producto</th>
+                                                    <th>Descripción</th>
+                                                    <th>Cantidad</th>
+                                                    <th>P. unitario</th>
+                                                    <th>Subtotal</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($sale_details as $sale_detail)
+                                                    <tr>
+                                                        <td>{{ $sale_detail->id }}</td>
+                                                        <td>{{ $sale_detail->product->name }}</td>
+                                                        <td>{{ $sale_detail->product->description }}</td>
+                                                        <td>{{ $sale_detail->quantity }}</td>
+                                                        <td align="right">{{ number_format($sale_detail->product->price,2) }}</td>
+                                                        <td align="right">{{ number_format($sale_detail->subtotal,2) }}</td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="hidden-print">
+                                    <div class="pull-right">
+                                        <a href="/ventas" class="btn btn-inverse waves-effect waves-light">Volver</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

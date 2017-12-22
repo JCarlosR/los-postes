@@ -66,4 +66,12 @@ class QuotationController extends Controller
 
         return view('Logistics.quotation.detail')->with(compact('quotation','articles','quotation_details', 'total'));
     }
+
+    public function delete($id)
+    {
+        $article = Quotation::find($id);
+        $article->delete();
+
+        return back()->with('notification', 'La cotización se ha eliminado correctamente.');
+    }
 }

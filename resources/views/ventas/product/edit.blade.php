@@ -5,8 +5,8 @@
 
 @section('page-title')
 
-    <a href="/articulos">Artículos</a> >
-    {{ $article->name }} >
+    <a href="/productos">Artículos</a> >
+    {{ $product->name }} >
     <i class="fa fa-edit m-r-5"></i>Editar
 @endsection
 @section('content')
@@ -42,24 +42,24 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="name" class="control-label">Nombre</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre del artículo" value="{{ old('name', $article->name) }}" required>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre del artículo" value="{{ old('name', $product->name) }}" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="description" class="control-label">Descripción</label>
-                                            <textarea class="form-control" rows="5" id="description" name="description">{{ $article->description }}</textarea>
+                                            <textarea class="form-control" rows="5" id="description" name="description">{{ $product->description }}</textarea>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="price" class="control-label">Precio</label>
-                                                    <input type="number" step="any" class="form-control" id="price" name="price" placeholder="" value="{{ old('price', $article->price) }}" required>
+                                                    <input type="number" step="any" class="form-control" id="price" name="price" placeholder="" value="{{ old('price', $product->price) }}" required>
                                                 </div>
                                             </div>
                                         </div>
                                     </div><!-- end col -->
                                 </div><!-- end row -->
                                 <div class="form-group">
-                                    <a href="/articulos" class="btn btn-default">
+                                    <a href="/productos" class="btn btn-default">
                                         Cancelar
                                     </a>
                                     <button class="btn btn-primary">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    <a href="/cotizacion">Cotización</a> > Crear
+    <a href="/orden-compra">Orden de compra</a> > Crear
 @endsection
 @section('content')
 
@@ -43,55 +43,16 @@
                                                 <label for="name">Señor(es)</label>
                                                 <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre" value="{{ old('name') }}" required>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="phone">Teléfono</label>
-                                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingrese teléfono" value="{{ old('phone') }}" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Fecha</label>
-                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date" value="{{ old('date', date('Y/m/d')) }}" required>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label class="control-label">Plazo de entrega</label>
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker" name="deliver_date" value="{{ old('deliver_date', date('Y/m/d')) }}" required>
+                                                <label class="control-label">Fecha</label>
+                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date" value="{{ old('date', date('Y/m/d')) }}" required>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label for="days">Válida por</label>
-                                                <input type="number" class="form-control" id="days" name="days" placeholder="Ingrese número de días" value="{{ old('days') }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <p>Forma de pago</p>
-                                                <div class="col-md-3">
-                                                    <div class="radio radio-info">
-                                                        <input id="1" type="radio" name="payment"
-                                                               value="CRE" required>
-                                                        <label for="1" class="m-b-5">crédito</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="radio radio-info">
-                                                        <input id="2" type="radio" name="payment"
-                                                               value="CON">
-                                                        <label for="2" class="m-b-5">contado</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="pull-right">
-                                                <a href="/cotizacion" class="btn btn-inverse waves-effect waves-light">Volver</a>
+                                                <a href="/orden-compra" class="btn btn-inverse waves-effect waves-light">Volver</a>
                                                 <button class="btn btn-primary waves-effect waves-light">Guardar</button>
                                             </div>
                                         </div>

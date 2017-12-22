@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    Cotizaciones
+    Orden de compra
 @endsection
 
 @section('content')
@@ -28,8 +28,8 @@
                     @endif
                     <div class="row">
                         <div class="col-sm-8">
-                            <a href="cotizacion/crear" class="btn btn-success btn-md waves-effect waves-light m-b-30"
-                               data-overlaySpeed="200" data-overlayColor="#36404a"><i class="zmdi zmdi-money-box m-r-5"></i> Nueva cotización</a>
+                            <a href="orden-compra/crear" class="btn btn-success btn-md waves-effect waves-light m-b-30"
+                               data-overlaySpeed="200" data-overlayColor="#36404a"><i class="zmdi zmdi-money-box m-r-5"></i> Nueva orden de compra</a>
                         </div><!-- end col -->
                     </div>
                     <div class="row">
@@ -41,31 +41,23 @@
                                         <th>Código</th>
                                         <th>Nombre</th>
                                         <th>Teléfono</th>
-                                        <th>Forma de pago</th>
                                         <th>Acción</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($quotations as $quotation)
+                                    @foreach($orders as $order)
                                     <tr>
-                                        <td>{{ $quotation->id }}</td>
-                                        <td>{{ $quotation->name }}</td>
-                                        <td>{{ $quotation->phone }}</td>
+                                        <td>{{ $order->id }}</td>
+                                        <td>{{ $order->name }}</td>
+                                        <td>{{ $order->phone }}</td>
                                         <td>
-                                            @if( $quotation->payment == 'CRE')
-                                                CRÉDITO
-                                            @else
-                                                CONTADO
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="/cotizacion/{{ $quotation->id }}/detalles" class="btn btn-sm btn-warning" title="Ver detalles">
+                                            <a href="/orden-compra/{{ $order->id }}/detalles" class="btn btn-sm btn-warning" title="Ver detalles">
                                                 <i class="fa fa-wpforms"></i>
                                             </a>
-                                            <a href="/cotizacion/{{ $quotation->id }}/editar" class="btn btn-sm btn-primary" title="Agregar articulos">
+                                            <a href="/orden-compra/{{ $order->id }}/editar" class="btn btn-sm btn-primary" title="Agregar articulos">
                                                 <i class="fa fa-pencil-square-o"></i>
                                             </a>
-                                            <a href="/cotizacion/{{ $quotation->id }}/eliminar" class="btn btn-sm btn-danger" title="Eliminar" onclick="return confirm('Seguro que desea eliminar esta cotización?')">
+                                            <a href="/orden-compra/{{ $order->id }}/eliminar" class="btn btn-sm btn-danger" title="Eliminar" onclick="return confirm('Seguro que desea eliminar esta orden de compra?')">
                                                 <i class="fa fa-trash o"></i>
                                             </a>
                                         </td>

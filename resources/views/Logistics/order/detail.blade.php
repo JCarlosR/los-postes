@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    <a href="/cotizacion">Cotización</a> > Crear
+    <a href="/orden-compra">Orden de compra</a> > detalle
 @endsection
 @section('content')
 
@@ -32,79 +32,87 @@
                                 <div class="clearfix">
                                     <div class="pull-left">
                                         <h3 class="logo">Postes del Norte S.A.</h3>
+                                        <h4>RUC: 20440424792</h4>
+                                    </div>
+                                    <div class="pull-right">
+                                        <h4>Orden de compra N° <strong>{{ $order->id }}</strong></h4>
                                     </div>
                                 </div>
                                 <hr>
-                                <form role="form" action="" method="POST">
-                                    {{ csrf_field() }}
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="name">Señor(es)</label>
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre" value="{{ old('name') }}" required>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 m-t-10">
+                                                <p>Señor(es): <u><strong>{{ $order->name }}</strong></u></p>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="phone">Teléfono</label>
-                                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingrese teléfono" value="{{ old('phone') }}" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Fecha</label>
-                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date" value="{{ old('date', date('Y/m/d')) }}" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label class="control-label">Plazo de entrega</label>
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker" name="deliver_date" value="{{ old('deliver_date', date('Y/m/d')) }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="days">Válida por</label>
-                                                <input type="number" class="form-control" id="days" name="days" placeholder="Ingrese número de días" value="{{ old('days') }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <p>Forma de pago</p>
-                                                <div class="col-md-3">
-                                                    <div class="radio radio-info">
-                                                        <input id="1" type="radio" name="payment"
-                                                               value="CRE" required>
-                                                        <label for="1" class="m-b-5">crédito</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="radio radio-info">
-                                                        <input id="2" type="radio" name="payment"
-                                                               value="CON">
-                                                        <label for="2" class="m-b-5">contado</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="pull-right">
-                                                <a href="/cotizacion" class="btn btn-inverse waves-effect waves-light">Volver</a>
-                                                <button class="btn btn-primary waves-effect waves-light">Guardar</button>
+                                            <div class="col-sm-6 m-t-10">
+                                                <p>Fecha: <u><strong>{{ $order->date }}</strong></u></p>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table m-t-5">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Artículo</th>
+                                                    <th>Descripción</th>
+                                                    <th>Cantidad</th>
+                                                    <th>P. unitario</th>
+                                                    <th>Subtotal</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($order_details as $order_detail)
+                                                    <tr>
+                                                        <td>{{ $order_detail->id }}</td>
+                                                        <td>{{ $order_detail->article->name }}</td>
+                                                        <td>{{ $order_detail->article->description }}</td>
+                                                        <td>{{ $order_detail->quantity }}</td>
+                                                        <td align="right">{{ number_format($order_detail->unit_price,2) }}</td>
+                                                        <td align="right">{{ number_format($order_detail->subtotal,2) }}</td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="clearfix m-t-20" align="center">
+                                            <h5 class="small text-inverse font-600">Mz. A2 - Lote 7 - Parque Industrial Telf.: 273908 - Cel.: 9623070</h5>
+                                            <h5 class="small text-inverse font-600">Av. España N° 240 - Telefax: (044)208667</h5>
+                                            <h5 class="small text-inverse font-600">TRUJILLO - PERÚ</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
+                                        <h3 class="text-right">S/ {{ number_format($total,2)}}</h3>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="hidden-print">
+                                    <div class="pull-right">
+                                        <a href="/orden-compra" class="btn btn-primary waves-effect waves-light"> Volver</a>
+                                        <a href="javascript:window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print m-r-5"></i> Imprimir</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-        </div>
-    </div>
+        </div> <!-- container -->
+    </div> <!-- content -->
+
     <footer class="footer">
-        2017 © Los Postes.
+        2017 © Selektools.
     </footer>
 
 </div>

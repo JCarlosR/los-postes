@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
+@section('icon')
+
+@endsection
+
 @section('page-title')
-    <a href="/cotizacion">Cotización</a> > Crear
+    <a href="/clientes">Clientes</a> > Crear
 @endsection
 @section('content')
 
@@ -25,86 +29,83 @@
                     </ul>
                 </div>
             @endif
+
+            <form role="form"  action="" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="clearfix">
-                                    <div class="pull-left">
-                                        <h3 class="logo">Postes del Norte S.A.</h3>
+                    <div class="col-sm-12">
+                        <div class="card-box">
+                            <h4 class="header-title m-t-0 m-b-30">Datos del cliente</h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="name" class="control-label">Nombre(s)</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre(s)" value="{{ old('name') }}" required>
                                     </div>
                                 </div>
-                                <hr>
-                                <form role="form" action="" method="POST">
-                                    {{ csrf_field() }}
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="name">Señor(es)</label>
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre" value="{{ old('name') }}" required>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="phone">Teléfono</label>
-                                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingrese teléfono" value="{{ old('phone') }}" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Fecha</label>
-                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date" value="{{ old('date', date('Y/m/d')) }}" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label class="control-label">Plazo de entrega</label>
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker" name="deliver_date" value="{{ old('deliver_date', date('Y/m/d')) }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="days">Válida por</label>
-                                                <input type="number" class="form-control" id="days" name="days" placeholder="Ingrese número de días" value="{{ old('days') }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <p>Forma de pago</p>
-                                                <div class="col-md-3">
-                                                    <div class="radio radio-info">
-                                                        <input id="1" type="radio" name="payment"
-                                                               value="CRE" required>
-                                                        <label for="1" class="m-b-5">crédito</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="radio radio-info">
-                                                        <input id="2" type="radio" name="payment"
-                                                               value="CON">
-                                                        <label for="2" class="m-b-5">contado</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="pull-right">
-                                                <a href="/cotizacion" class="btn btn-inverse waves-effect waves-light">Volver</a>
-                                                <button class="btn btn-primary waves-effect waves-light">Guardar</button>
-                                            </div>
-                                        </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="last_name" class="control-label">Apellidos</label>
+                                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Ingresar apellidos" value="{{ old('last_name') }}" required>
                                     </div>
-                                </form>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="dni" class="control-label">DNI</label>
+                                        <input type="text" class="form-control" id="dni" name="dni" placeholder="Ingresar apellidos" value="{{ old('dni') }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="phone" class="control-label">Teléfono</label>
+                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingresar apellidos" value="{{ old('phone') }}" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="business_name" class="control-label">Razon social</label>
+                                        <input type="text" step="any" class="form-control" id="business_name" name="business_name" placeholder="" value="{{ old('business_name') }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="ruc" class="control-label">RUC</label>
+                                        <input type="number" step="any" class="form-control" id="ruc" name="ruc" placeholder="" value="{{ old('ruc') }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="address" class="control-label">Dirección</label>
+                                        <input type="text" step="any" class="form-control" id="address" name="address" placeholder="" value="{{ old('address') }}" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Imagen</label>
+                                <input type="file" name="image" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                <small id="fileHelp" class="form-text text-muted">Cargue archivos formato imagen.</small>
+                            </div>
+                            <div class="form-group">
+                                <a href="/cientes" class="btn btn-default">
+                                    Cancelar
+                                </a>
+                                <button class="btn btn-primary">
+                                    Registrar cliente
+                                    <i class="fa fa-save"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </div><!-- end col -->
                 </div>
-        </div>
-    </div>
+                <!-- end row -->
+            </form>
+        </div> <!-- container -->
+    </div> <!-- content -->
+
     <footer class="footer">
-        2017 © Los Postes.
+        2017 © Selektools.
     </footer>
 
 </div>

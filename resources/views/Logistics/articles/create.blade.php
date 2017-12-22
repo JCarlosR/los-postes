@@ -40,7 +40,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="name" class="control-label">Nombre</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre del artículo" value="{{ old('name') }}">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre del artículo" value="{{ old('name') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="description" class="control-label">Descripción</label>
@@ -50,7 +50,7 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="price" class="control-label">Precio</label>
-                                                <input type="number" step="any" class="form-control" id="price" name="price" placeholder="" value="{{ old('price') }}">
+                                                <input type="number" step="any" class="form-control" id="price" name="price" placeholder="" value="{{ old('price') }}" required>
                                             </div>
                                         </div>
                                     </div>

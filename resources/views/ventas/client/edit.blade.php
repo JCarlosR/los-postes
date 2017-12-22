@@ -5,8 +5,8 @@
 
 @section('page-title')
 
-    <a href="/articulos">Artículos</a> >
-    {{ $article->name }} >
+    <a href="/articulos">Clientes</a> >
+    {{ $client->name }} >
     <i class="fa fa-edit m-r-5"></i>Editar
 @endsection
 @section('content')
@@ -32,34 +32,65 @@
                     </div>
                 @endif
 
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="card-box">
-                                <h4 class="header-title m-t-0 m-b-30">Datos del artículo</h4>
+                                <h4 class="header-title m-t-0 m-b-30">Datos del cliente</h4>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="name" class="control-label">Nombre</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre del artículo" value="{{ old('name', $article->name) }}" required>
+                                            <label for="name" class="control-label">Nombre(s)</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre(s)" value="{{ old('name', $client->name) }}" required>
                                         </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="description" class="control-label">Descripción</label>
-                                            <textarea class="form-control" rows="5" id="description" name="description">{{ $article->description }}</textarea>
+                                            <label for="last_name" class="control-label">Apellidos</label>
+                                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Ingresar apellidos" value="{{ old('last_name', $client->last_name) }}" required>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="price" class="control-label">Precio</label>
-                                                    <input type="number" step="any" class="form-control" id="price" name="price" placeholder="" value="{{ old('price', $article->price) }}" required>
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="dni" class="control-label">DNI</label>
+                                            <input type="text" class="form-control" id="dni" name="dni" placeholder="Ingresar apellidos" value="{{ old('dni', $client->dni) }}" required>
                                         </div>
-                                    </div><!-- end col -->
-                                </div><!-- end row -->
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="phone" class="control-label">Teléfono</label>
+                                            <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingresar apellidos" value="{{ old('phone', $client->phone) }}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="business_name" class="control-label">Razon social</label>
+                                            <input type="text" step="any" class="form-control" id="business_name" name="business_name" placeholder="" value="{{ old('business_name', $client->business_name) }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="ruc" class="control-label">RUC</label>
+                                            <input type="number" step="any" class="form-control" id="ruc" name="ruc" placeholder="" value="{{ old('ruc', $client->ruc) }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="address" class="control-label">Dirección</label>
+                                            <input type="text" step="any" class="form-control" id="address" name="address" placeholder="" value="{{ old('address', $client->address) }}" required>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
-                                    <a href="/articulos" class="btn btn-default">
+                                    <label for="exampleInputFile">Imagen <em>(Ingresar solo si se desea modificar)</em></label>
+                                    <input type="file" name="image" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                    <small id="fileHelp" class="form-text text-muted">Cargue archivos formato imagen.</small>
+                                </div>
+                                <div class="form-group">
+                                    <a href="/clientes" class="btn btn-default">
                                         Cancelar
                                     </a>
                                     <button class="btn btn-primary">

@@ -80,8 +80,8 @@ class ArticleController extends Controller
 
     public function delete($id)
     {
-        $user = Article::find($id);
-        $user->delete();
+        $article = Article::find($id);
+        $article->delete();
 
         return back()->with('notification', 'El articulo se ha eliminado correctamente.');
     }

@@ -52,7 +52,7 @@
                                         <td>{{ $article->id }}</td>
                                         <td>{{ $article->name }}</td>
                                         <td>{{ $article->description }}</td>
-                                        <td>S/ {{ $article->price }}</td>
+                                        <td>S/ {{ number_format($article->price,2) }}</td>
                                         <td>
                                             <a href="/articulos/{{ $article->id }}/editar" class="btn btn-sm btn-primary" title="Editar">
                                                 <i class="fa fa-pencil-square-o"></i>

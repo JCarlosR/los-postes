@@ -11,14 +11,14 @@
                     <div class="panel panel-color panel-primary">
                         <div class="panel-heading">
                             <button type="button" class="close m-t-5" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 class="panel-title">Nueva activación</h3>
+                            <h3 class="panel-title">Nuevo artículo</h3>
                         </div>
                         <form role="form" action="/cotizacion/{{$quotation->id}}/editar" method="POST">
                             {{ csrf_field() }}
                         <div class="panel-body">
                             <div class="form-group">
                                 <label for="nombre" class="control-label">Artículo</label>
-                                <select class="form-control select2" name="article_id">
+                                <select class="form-control select2" name="article_id" required>
                                     <option>Seleccionar</option>
                                     @foreach($articles as $article)
                                     <option value="{{ $article->id }}">{{ $article->name }}</option>
@@ -29,13 +29,13 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="quantity" class="control-label">Cantidad</label>
-                                        <input type="number" name="quantity" class="form-control" id="quantity" value="{{ old('quantity') }}">
+                                        <input type="number" name="quantity" class="form-control" id="quantity" value="{{ old('quantity') }}" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="unit_price" class="control-label">Precio unitario</label>
-                                        <input type="number" step="any" class="form-control" id="unit_price" name="unit_price" placeholder="" value="{{ old('unit_price') }}">
+                                        <input type="number" step="any" class="form-control" id="unit_price" name="unit_price" placeholder="" value="{{ old('unit_price') }}" required>
                                     </div>
                                 </div>
                             </div>

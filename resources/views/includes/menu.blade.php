@@ -9,8 +9,17 @@
             <ul class="list-unstyled">
                 <li><a href="/articulos">Artículos (materiales)</a></li>
                 <li><a href="/cotizacion">Cotización</a></li>
-                <li><a href="tables-datatable.html">Orden de compra</a></li>
-                <li><a href="tables-datatable.html">Inventario</a></li>
+                <li><a href="/orden-compra">Orden de compra</a></li>
+
+            </ul>
+        </li>
+        <li class="has_sub">
+            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-money"></i> <span> Ventas </span> <span class="menu-arrow"></span></a>
+            <ul class="list-unstyled">
+                <li><a href="/productos">Productos</a></li>
+                <li><a href="/clientes">Clientes</a></li>
+                <li><a href="/ventas">Ventas</a></li>
+
             </ul>
         </li>
     </ul>

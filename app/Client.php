@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 
-class Quotation extends Model
+class Client extends Model
 {
-    use SoftDeletes;
+    use Notifiable;
+    use softDeletes;
 }
