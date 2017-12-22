@@ -18,8 +18,8 @@ class CreateClientsTable extends Migration
 
             $table->string('name');
             $table->string('last_name');
-            $table->string('business_name');
-            $table->string('ruc');
+            $table->string('business_name')->nullable();
+            $table->string('ruc')->nullable();
             $table->string('dni');
             $table->string('phone');
             $table->string('address');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Sales;
 
 use App\Client;
+use Illuminate\Validation\Rules\Unique;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -42,7 +43,7 @@ class ClientController extends Controller
 
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
-            $fileName = $client->id . '.' . $extension;
+            $fileName = uniqid() . '.' . $extension;
 
             $path = public_path('images/users/' . $fileName);
 

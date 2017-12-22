@@ -47,7 +47,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="phone">Teléfono</label>
-                                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingrese teléfono" value="{{ old('phone') }}" required>
+                                                        <input type="text" class="form-control" id="phone" name="phone" data-mask="(999)999 999" value="{{ old('phone') }}" required>
+                                                        <small id="fileHelp" class="form-text text-muted">Ejemplo: (044)154 652</small>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

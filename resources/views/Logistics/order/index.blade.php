@@ -35,12 +35,12 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
-                                <table id="datatable-buttons" class="table table-striped table-bordered">
+                                <table id="datatable" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
                                         <th>Código</th>
                                         <th>Nombre</th>
-                                        <th>Teléfono</th>
+                                        <th>Fecha</th>
                                         <th>Acción</th>
                                     </tr>
                                     </thead>
@@ -49,7 +49,7 @@
                                     <tr>
                                         <td>{{ $order->id }}</td>
                                         <td>{{ $order->name }}</td>
-                                        <td>{{ $order->phone }}</td>
+                                        <td>{{ $order->date }}</td>
                                         <td>
                                             <a href="/orden-compra/{{ $order->id }}/detalles" class="btn btn-sm btn-warning" title="Ver detalles">
                                                 <i class="fa fa-wpforms"></i>

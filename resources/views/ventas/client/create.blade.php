@@ -52,13 +52,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="dni" class="control-label">DNI</label>
-                                        <input type="text" class="form-control" id="dni" name="dni" placeholder="Ingresar apellidos" value="{{ old('dni') }}" required>
+                                        <input type="text" class="form-control" id="dni" name="dni" data-mask="99999999" value="{{ old('dni') }}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="phone" class="control-label">Teléfono</label>
-                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Ingresar apellidos" value="{{ old('phone') }}" required>
+                                        <label for="phone" class="control-label">Teléfono fijo</label>
+                                        <input type="text" class="form-control" id="phone" name="phone" data-mask="(999)999 999" value="{{ old('phone') }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -66,13 +66,13 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="business_name" class="control-label">Razon social</label>
-                                        <input type="text" step="any" class="form-control" id="business_name" name="business_name" placeholder="" value="{{ old('business_name') }}" required>
+                                        <input type="text" step="any" class="form-control" id="business_name" name="business_name" placeholder="" value="{{ old('business_name') }}">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="ruc" class="control-label">RUC</label>
-                                        <input type="number" step="any" class="form-control" id="ruc" name="ruc" placeholder="" value="{{ old('ruc') }}" required>
+                                        <input type="text" step="any" class="form-control" id="ruc" name="ruc" data-mask="99999999999" value="{{ old('ruc') }}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

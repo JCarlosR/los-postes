@@ -49,8 +49,8 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="price" class="control-label">Precio</label>
-                                                <input type="number" step="any" class="form-control" id="price" name="price" placeholder="" value="{{ old('price') }}" required>
+                                                <label for="price" class="control-label">Precio (S/)</label>
+                                                <input type="number" step="any" class="form-control" id="price" name="price" placeholder="99.99" value="{{ old('price') }}" required>
                                             </div>
                                         </div>
                                     </div>
