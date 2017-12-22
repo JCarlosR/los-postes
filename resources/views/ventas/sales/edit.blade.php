@@ -97,7 +97,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <button class="btn btn-primary waves-effect waves-light"
-                                            data-toggle="modal"  data-target="#panel-modal">Nuevo artículo</button>
+                                            data-toggle="modal"  data-target="#panel-modal">Nuevo producto</button>
                                         </div>
                                     </div>
                                 </div>

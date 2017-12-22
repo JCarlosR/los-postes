@@ -40,7 +40,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="nombre" class="control-label">Artículo</label>
+                                                <label for="nombre" class="control-label">Nombre</label>
                                                 <select class="form-control select2" name="client_id" required>
                                                     <option>Seleccionar</option>
                                                     @foreach($clients as $client)

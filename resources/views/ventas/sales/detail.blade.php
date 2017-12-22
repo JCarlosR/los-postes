@@ -35,7 +35,7 @@
                                         <h4>RUC: 20440424792</h4>
                                     </div>
                                     <div class="pull-right">
-                                        <h4>Venta N° <strong>{{ $sale->id }}</strong></h4>
+                                        <h4>Orden de venta N° <strong>{{ $sale->id }}</strong></h4>
                                     </div>
                                 </div>
                                 <hr>
@@ -43,7 +43,7 @@
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <div class="col-sm-6 m-t-10">
-                                                <p>Señor(es): <u><strong>{{ $sale->client->name }}</strong></u></p>
+                                                <p>Señor(es): <u><strong>{{ $sale->client->name }} {{ $sale->client->last_name }}</strong></u></p>
                                             </div>
                                             <div class="col-sm-6 m-t-10">
                                                 <p>Fecha: <u><strong>{{ $sale->date }}</strong></u></p>

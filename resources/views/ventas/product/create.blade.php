@@ -40,7 +40,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="name" class="control-label">Nombre</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre del artículo" value="{{ old('name') }}" required>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre del producto" value="{{ old('name') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="description" class="control-label">Descripción</label>
