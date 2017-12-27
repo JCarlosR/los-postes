@@ -45,7 +45,7 @@
                                             <select class="form-control" name="type" id="select" onChange="mostrar(this.value);" required>
                                                 <option>Seleccionar</option>
                                                 <option value="N" @if($client->type == 'N') selected @endif>Natural</option>
-                                                <option value="J" @if($client->type == 'J') selected @endif>Jurídica</option>
+                                                <option value="J" @if($client->type == 'J') selected @endif>Jurídico</option>
                                             </select>
                                         </div>
                                     </div>
@@ -54,19 +54,19 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="name" class="control-label">Nombre(s)</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre(s)" value="{{ old('name', $client->name) }}" required>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre(s)" value="{{ old('name', $client->name) }}" >
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="last_name" class="control-label">Apellidos</label>
-                                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Ingresar apellidos" value="{{ old('last_name', $client->last_name) }}" required>
+                                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Ingresar apellidos" value="{{ old('last_name', $client->last_name) }}" >
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="dni" class="control-label">DNI</label>
-                                            <input type="text" class="form-control" id="dni" name="dni" data-mask="99999999" value="{{ old('dni', $client->dni) }}" required>
+                                            <input type="text" class="form-control" id="dni" name="dni" data-mask="99999999" value="{{ old('dni', $client->dni) }}" >
                                         </div>
                                     </div>
                                 </div>
@@ -88,13 +88,13 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="phone" class="control-label">Teléfono fijo</label>
-                                            <input type="text" class="form-control" id="phone" name="phone" data-mask="(999)999 999" value="{{ old('phone', $client->phone) }}" required>
+                                            <input type="text" class="form-control" id="phone" name="phone" data-mask="(999)999 999" value="{{ old('phone', $client->phone) }}" >
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="address" class="control-label">Dirección</label>
-                                            <input type="text" step="any" class="form-control" id="address" name="address" placeholder="" value="{{ old('address', $client->address) }}" required>
+                                            <input type="text" step="any" class="form-control" id="address" name="address" placeholder="" value="{{ old('address', $client->address) }}" >
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@
         </div> <!-- content -->
 
         <footer class="footer">
-            2017 © Selektools.
+            2017 - 2018 © Los postes.
         </footer>
 
     </div>

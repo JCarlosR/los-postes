@@ -40,10 +40,10 @@
                                     <tr>
                                         <th></th>
                                         <th>Tipo de cliente</th>
-                                        <th>Nombre o razon social</th>
-                                        <th>Dni o ruc</th>
+                                        <th>Nombre o razón social</th>
+                                        <th>DNI o RUC</th>
                                         <th>Teléfono</th>
-                                        <th>Direccion</th>
+                                        <th>Dirección</th>
                                         <th>Acción</th>
                                     </tr>
                                     </thead>
@@ -53,8 +53,20 @@
                                     <tr>
                                         <td><img src="{{ asset('images/users/'.$client->image) }}" alt="Imagen del usuario" height="36"></td>
                                         <td>{{ $client->type_name }}</td>
-                                        <td>{{ $client->name_complete }}</td>
-                                        <td>{{ $client->dni }}</td>
+                                        <td>
+                                            @if($client->type == 'N')
+                                                {{ $client->name_complete }}
+                                            @elseif($client->type == 'J')
+                                                {{ $client->business_name }}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($client->type == 'N')
+                                                {{ $client->dni }}
+                                            @elseif($client->type == 'J')
+                                                {{ $client->ruc }}
+                                            @endif
+                                        </td>
                                         <td>{{ $client->phone }}</td>
                                         <td>{{ $client->address }}</td>
                                         <td>

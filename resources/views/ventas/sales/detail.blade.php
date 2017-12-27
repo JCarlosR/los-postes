@@ -36,7 +36,7 @@
                                         <h4>RUC: 20440424792</h4>
                                     </div>
                                     <div class="pull-right">
-                                        <h4>Orden de venta N° <strong>{{ $sale->id }}</strong></h4>
+                                        <h4>Boleta N° <strong>{{ $sale->id }}</strong></h4>
                                     </div>
                                 </div>
                                 <hr>
@@ -124,7 +124,7 @@
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <div class="col-sm-4 m-t-10">
-                                                <p>Razon social: <u><strong>{{ $sale->client->business_name }}</strong></u></p>
+                                                <p>Razón social: <u><strong>{{ $sale->client->business_name }}</strong></u></p>
                                             </div>
                                             <div class="col-sm-4 m-t-10">
                                                 <p>RUC: <u><strong>{{ $sale->client->ruc }}</strong></u></p>
@@ -200,7 +200,7 @@
     </div> <!-- content -->
 
     <footer class="footer">
-        2017 © Selektools.
+        2017 - 2018 © Los postes.
     </footer>
 
 </div>

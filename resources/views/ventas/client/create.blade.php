@@ -42,33 +42,33 @@
                                         <label for="nombre" class="control-label">Tipo de cliente</label>
                                         <select class="form-control" name="type" id="select" onChange="mostrar(this.value);" required>
                                             <option>Seleccionar</option>
-                                            <option value="N">Natural</option>
-                                            <option value="J">Jurídica</option>
+                                            <option value="N" @if(old('type') == 'N') selected @endif>Natural</option>
+                                            <option value="J" @if(old('type') == 'J') selected @endif>Jurídico</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                                <div class="row" id="N" style="display: none;">
+                                <div class="row" id="N" @if(old('type') != 'N') style="display: none;" @endif >
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="name" class="control-label">Nombre(s)</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre(s)" value="{{ old('name') }}" required>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar nombre(s)" value="{{ old('name') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="last_name" class="control-label">Apellidos</label>
-                                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Ingresar apellidos" value="{{ old('last_name') }}" required>
+                                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Ingresar apellidos" value="{{ old('last_name') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="dni" class="control-label">DNI</label>
-                                            <input type="text" class="form-control" id="dni" name="dni" data-mask="99999999" value="{{ old('dni') }}" required>
+                                            <input type="text" class="form-control" id="dni" name="dni" data-mask="99999999" value="{{ old('dni') }}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" id="J" style="display: none;">
+                                <div class="row" id="J" @if(old('type') != 'J') style="display: none;" @endif>
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label for="business_name" class="control-label">Razon social</label>
@@ -86,13 +86,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="phone" class="control-label">Teléfono fijo</label>
-                                        <input type="text" class="form-control" id="phone" name="phone" data-mask="(999)999 999" value="{{ old('phone') }}" required>
+                                        <input type="text" class="form-control" id="phone" name="phone" data-mask="(999)999 999" value="{{ old('phone') }}" >
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="address" class="control-label">Dirección</label>
-                                        <input type="text" step="any" class="form-control" id="address" name="address" placeholder="" value="{{ old('address') }}" required>
+                                        <input type="text" step="any" class="form-control" id="address" name="address" placeholder="" value="{{ old('address') }}" >
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
     </div> <!-- content -->
 
     <footer class="footer">
-        2017 © Selektools.
+        2017 - 2018 © Los postes.
     </footer>
 
 </div>

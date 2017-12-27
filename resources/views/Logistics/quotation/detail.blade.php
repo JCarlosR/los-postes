@@ -123,7 +123,7 @@
     </div> <!-- content -->
 
     <footer class="footer">
-        2017 © Selektools.
+        2017 - 2018 © Los postes.
     </footer>
 
 </div>

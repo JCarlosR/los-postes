@@ -81,14 +81,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="name">Nombre o razon social</label>
-                                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $sale->client->name_complete) }}" readonly>
+                                            <label for="name">@if($sale->client->type == 'N') Nombre @else Razón social de la empresa @endif</label>
+                                            <input type="text" class="form-control" id="name" name="name" @if($sale->client->type == 'N') value="{{ $sale->client->name_complete }}" @else value="{{ $sale->client->business_name }}" @endif readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label">Fecha</label>
-                                            <input type="text" class="form-control" name="date" value="{{ old('date', $sale->date) }}" readonly>
+                                            <input type="text" class="form-control" name="date" value="{{ $sale->date }}" readonly>
                                         </div>
                                     </div>
                                 </div>

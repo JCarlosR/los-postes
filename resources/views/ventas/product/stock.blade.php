@@ -35,7 +35,7 @@
                                         <th>Código</th>
                                         <th>Nombre</th>
                                         <th>Descripción</th>
-                                        <th>stock</th>
+                                        <th>Stock</th>
                                     </tr>
                                     </thead>
 

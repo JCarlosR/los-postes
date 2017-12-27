@@ -24,10 +24,18 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $rules = [
-
+            "dni" => "required_if:type,==,N",
+            "name" => "required_if:type,==,N",
+            "last_name" => "required_if:type,==,N",
+            "business_name" => "required_if:type,==,J",
+            "ruc" => "required_if:type,==,J"
         ];
         $messages = [
-
+            'name.required_if' => 'Es indispensable ingresar el nombre del cliente.',
+            'dni.required_if' => 'Es indispensable ingresar el dni del cliente.',
+            'last_name.required_if' => 'Es indispensable ingresar el apellido del cliente.',
+            'business_name.required_if' => 'Es indispensable ingresar la razon social de la empresa    .',
+            'ruc.required_if' => 'Es indispensable ingresar el ruc de la empresa.',
         ];
         $this->validate($request, $rules, $messages);
 
@@ -72,10 +80,18 @@ class ClientController extends Controller
     {
 
         $rules = [
-
+            "dni" => "required_if:type,==,N",
+            "name" => "required_if:type,==,N",
+            "last_name" => "required_if:type,==,N",
+            "business_name" => "required_if:type,==,J",
+            "ruc" => "required_if:type,==,J"
         ];
         $messages = [
-
+            'name.required_if' => 'Es indispensable ingresar el nombre del cliente.',
+            'dni.required_if' => 'Es indispensable ingresar el dni del cliente.',
+            'last_name.required_if' => 'Es indispensable ingresar el apellido del cliente.',
+            'business_name.required_if' => 'Es indispensable ingresar la razon social de la empresa    .',
+            'ruc.required_if' => 'Es indispensable ingresar el ruc de la empresa.',
         ];
         $this->validate($request, $rules, $messages);
 

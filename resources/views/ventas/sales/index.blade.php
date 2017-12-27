@@ -55,7 +55,7 @@
                                         @elseif($sale->client->type == 'J')
                                             <td>{{ $sale->client->business_name }}</td>
                                         @endif
-                                        <td>{{ $sale->date }}</td>4
+                                        <td>{{ $sale->date }}</td>
                                         <td>
                                             <a href="/ventas/{{ $sale->id }}/detalles" class="btn btn-sm btn-warning" title="Ver detalles">
                                                 <i class="fa fa-wpforms"></i>
