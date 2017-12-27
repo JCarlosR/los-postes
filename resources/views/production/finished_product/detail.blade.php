@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    <a href="/ventas">Venta</a> > Crear
+    <a href="/orden-compra">Lista de productos terminados</a> > detalle
 @endsection
 @section('content')
 
@@ -32,49 +32,80 @@
                                 <div class="clearfix">
                                     <div class="pull-left">
                                         <h3 class="logo">Postes del Norte S.A.</h3>
+                                        <h4>RUC: 20440424792</h4>
+                                    </div>
+                                    <div class="pull-right">
+                                        <h4>Lista de productos terminados N° <strong>{{ $Fproduct->id }}</strong></h4>
                                     </div>
                                 </div>
                                 <hr>
-                                <form role="form" action="" method="POST">
-                                    {{ csrf_field() }}
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="nombre" class="control-label">Nombre o razon social</label>
-                                                <select class="form-control select2" name="client_id" required>
-                                                    <option>Seleccionar</option>
-                                                    @foreach($clients as $client)
-                                                        @if($client->type == 'N')
-                                                        <option value="{{ $client->id }}">{{ $client->name_complete }}</option>
-                                                        @elseif($client->type == 'J')
-                                                        <option value="{{ $client->id }}">{{ $client->business_name }}</option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 m-t-10">
+                                                <p>Encargado(a): <u><strong>{{ $Fproduct->name }}</strong></u></p>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label class="control-label">Fecha</label>
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date" value="{{ old('date', date('Y/m/d')) }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <a href="/ventas" class="btn btn-inverse waves-effect waves-light">Volver</a>
-                                                <button class="btn btn-primary waves-effect waves-light">Guardar</button>
+                                            <div class="col-sm-6 m-t-10">
+                                                <p>Fecha: <u><strong>{{ $Fproduct->date }}</strong></u></p>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table m-t-5">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Producto</th>
+                                                    <th>Descripción</th>
+                                                    <th>Cantidad</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($Fproduct_details as $Fproduct_detail)
+                                                    <tr>
+                                                        <td>{{ $Fproduct_detail->id }}</td>
+                                                        <td>{{ $Fproduct_detail->product->name }}</td>
+                                                        <td>{{ $Fproduct_detail->product->description }}</td>
+                                                        <td>{{ $Fproduct_detail->quantity }}</td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="clearfix m-t-20" align="center">
+                                            <h5 class="small text-inverse font-600">Mz. A2 - Lote 7 - Parque Industrial Telf.: 273908 - Cel.: 9623070</h5>
+                                            <h5 class="small text-inverse font-600">Av. España N° 240 - Telefax: (044)208667</h5>
+                                            <h5 class="small text-inverse font-600">TRUJILLO - PERÚ</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="hidden-print">
+                                    <div class="pull-right">
+                                        <a href="/productos-terminados" class="btn btn-primary waves-effect waves-light"> Volver</a>
+                                        <a href="javascript:window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print m-r-5"></i> Imprimir</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-        </div>
-    </div>
+        </div> <!-- container -->
+    </div> <!-- content -->
+
     <footer class="footer">
-        2017 © Los Postes.
+        2017 © Selektools.
     </footer>
 
 </div>

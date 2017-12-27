@@ -59,10 +59,15 @@ class SaleController extends Controller
         $sale_details = SaleDetail::where('sale_id', $sale->id)->get();
         //dd($quotation_details);
         $total = 0;
+        $igv = 0;
+        $totalIgv = 0;
         foreach ($sale_details as $sale_detail)
             $total = $total + $sale_detail->subtotal;
 
-        return view('ventas.sales.detail')->with(compact('sale','products','sale_details', 'total'));
+        $igv = $total*0.18;
+        $totalIgv = $total + $igv;
+
+        return view('ventas.sales.detail')->with(compact('sale','products','sale_details', 'total','igv', 'totalIgv'));
     }
 
     public function delete($id)

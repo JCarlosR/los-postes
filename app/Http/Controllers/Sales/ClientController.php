@@ -33,6 +33,7 @@ class ClientController extends Controller
 
         $client = new Client();
 
+        $client->type = $request->input('type');
         $client->name = $request->input('name');
         $client->last_name = $request->input('last_name');
         $client->business_name = $request->input('business_name');
@@ -80,6 +81,7 @@ class ClientController extends Controller
 
         $client = Client::find($id);
 
+        $client->type = $request->input('type');
         $client->name = $request->input('name');
         $client->last_name = $request->input('last_name');
         $client->business_name = $request->input('business_name');

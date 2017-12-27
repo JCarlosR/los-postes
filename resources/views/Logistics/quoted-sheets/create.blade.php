@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
+@section('icon')
+
+@endsection
+
 @section('page-title')
-    <a href="/ventas">Venta</a> > Crear
+    <a href="/hojas-cotizadas">Hojas cotizadas</a> > Crear
 @endsection
 @section('content')
 
@@ -25,56 +29,49 @@
                     </ul>
                 </div>
             @endif
+
+            <form role="form"  action="" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="clearfix">
-                                    <div class="pull-left">
-                                        <h3 class="logo">Postes del Norte S.A.</h3>
+                    <div class="col-sm-6">
+                        <div class="card-box">
+                            <h4 class="header-title m-t-0 m-b-30">Datos de la hoja cotizada</h4>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="registration_code" class="control-label">Código de registro</label>
+                                        <input type="number" class="form-control" id="name" name="registration_code" placeholder="Ingresar código" value="{{ old('registration_code') }}" required>
                                     </div>
                                 </div>
-                                <hr>
-                                <form role="form" action="" method="POST">
-                                    {{ csrf_field() }}
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="nombre" class="control-label">Nombre o razon social</label>
-                                                <select class="form-control select2" name="client_id" required>
-                                                    <option>Seleccionar</option>
-                                                    @foreach($clients as $client)
-                                                        @if($client->type == 'N')
-                                                        <option value="{{ $client->id }}">{{ $client->name_complete }}</option>
-                                                        @elseif($client->type == 'J')
-                                                        <option value="{{ $client->id }}">{{ $client->business_name }}</option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label class="control-label">Fecha</label>
-                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" name="date" value="{{ old('date', date('Y/m/d')) }}" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <a href="/ventas" class="btn btn-inverse waves-effect waves-light">Volver</a>
-                                                <button class="btn btn-primary waves-effect waves-light">Guardar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                            </div>
+                            <div class="form-group">
+                                <label for="company_name" class="control-label">Nombre de la empresa</label>
+                                <input type="text" step="any" class="form-control" id="company_name" name="company_name" placeholder="" value="{{ old('company_name') }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Imagen <em>(Ingresar la hoja que el proveedor envió)</em></label>
+                                <input type="file" name="image" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                <small id="fileHelp" class="form-text text-muted">Cargue archivos formato imagen.</small>
+                            </div>
+                            <div class="form-group">
+                                <a href="/clientes" class="btn btn-default">
+                                    Cancelar
+                                </a>
+                                <button class="btn btn-primary">
+                                    Registrar hoja cotizada
+                                    <i class="fa fa-save"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </div><!-- end col -->
                 </div>
-        </div>
-    </div>
+                <!-- end row -->
+            </form>
+        </div> <!-- container -->
+    </div> <!-- content -->
+
     <footer class="footer">
-        2017 © Los Postes.
+        2017 © Selektools.
     </footer>
 
 </div>

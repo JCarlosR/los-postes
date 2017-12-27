@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Logistics'], function (){
     Route::get('/articulos/{id}/editar', 'ArticleController@edit');
     Route::post('/articulos/{id}/editar', 'ArticleController@update');
     Route::get('/articulos/{id}/eliminar', 'ArticleController@delete');
+    Route::get('/stock-articulos', 'ArticleController@stock');
 
     //Quotations
     Route::get('/cotizacion', 'QuotationController@index');
@@ -38,6 +39,14 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Logistics'], function (){
     Route::get('/cotizacion/{id}/detalles', 'QuotationController@detail');
     Route::get('/cotizacion/{id}/eliminar', 'QuotationController@delete');
 
+    //Quoted sheets
+    Route::get('/hojas-cotizadas', 'QuotedSheetsController@index');
+    Route::get('/hojas-cotizadas/crear', 'QuotedSheetsController@create');
+    Route::post('/hojas-cotizadas/crear', 'QuotedSheetsController@store');
+    Route::get('/hojas-cotizadas/{id}/editar', 'QuotedSheetsController@edit');
+    Route::post('/hojas-cotizadas/{id}/editar', 'QuotedSheetsController@update');
+    Route::get('/hojas-cotizadas/{id}/eliminar', 'QuotedSheetsController@delete');
+
     //Order
     Route::get('/orden-compra', 'OrderController@index');
     Route::get('/orden-compra/crear', 'OrderController@create');
@@ -47,6 +56,21 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Logistics'], function (){
     Route::get('/orden-compra/{id}/detalles', 'OrderController@detail');
     Route::get('/orden-compra/{id}/eliminar', 'OrderController@delete');
 });
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Production'], function () {
+
+    //finished - product
+    Route::get('/productos-terminados', 'FinishedProductController@index');
+    Route::get('/productos-terminados/crear', 'FinishedProductController@create');
+    Route::post('/productos-terminados/crear', 'FinishedProductController@store');
+    Route::get('/productos-terminados/{id}/editar', 'FinishedProductController@edit');
+    Route::post('/productos-terminados/{id}/editar', 'FinishedProductDetailController@store');
+    Route::get('/productos-terminados/{id}/detalles', 'FinishedProductController@detail');
+    Route::get('/productos-terminados/{id}/eliminar', 'FinishedProductController@delete');
+
+    Route::get('/stock-productos', 'FinishedProductController@stock');
+});
+
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Sales'], function (){
 

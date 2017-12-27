@@ -28,6 +28,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">
+                            @if($sale->client->type == 'N')
                             <div class="panel-body">
                                 <div class="clearfix">
                                     <div class="pull-left">
@@ -42,10 +43,13 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="row">
-                                            <div class="col-sm-6 m-t-10">
-                                                <p>Señor(es): <u><strong>{{ $sale->client->name }} {{ $sale->client->last_name }}</strong></u></p>
+                                            <div class="col-sm-4 m-t-10">
+                                                <p>Señor(es): <u><strong>{{ $sale->client->name_complete }}</strong></u></p>
                                             </div>
-                                            <div class="col-sm-6 m-t-10">
+                                            <div class="col-sm-4 m-t-10">
+                                                <p>DNI: <u><strong>{{ $sale->client->dni }}</strong></u></p>
+                                            </div>
+                                            <div class="col-sm-4 m-t-10">
                                                 <p>Fecha: <u><strong>{{ $sale->date }}</strong></u></p>
                                             </div>
                                         </div>
@@ -104,6 +108,90 @@
                                     </div>
                                 </div>
                             </div>
+                            @elseif($sale->client->type == 'J')
+                            <div class="panel-body">
+                                <div class="clearfix">
+                                    <div class="pull-left">
+                                        <h3 class="logo">Postes del Norte S.A.</h3>
+                                        <h4>RUC: 20440424792</h4>
+                                    </div>
+                                    <div class="pull-right">
+                                        <h4>Factura N° <strong>{{ $sale->id }}</strong></h4>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-4 m-t-10">
+                                                <p>Razon social: <u><strong>{{ $sale->client->business_name }}</strong></u></p>
+                                            </div>
+                                            <div class="col-sm-4 m-t-10">
+                                                <p>RUC: <u><strong>{{ $sale->client->ruc }}</strong></u></p>
+                                            </div>
+                                            <div class="col-sm-4 m-t-10">
+                                                <p>Fecha: <u><strong>{{ $sale->date }}</strong></u></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table m-t-5">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Producto</th>
+                                                    <th>Descripción</th>
+                                                    <th>Cantidad</th>
+                                                    <th>P. unitario</th>
+                                                    <th>Subtotal</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($sale_details as $sale_detail)
+                                                    <tr>
+                                                        <td>{{ $sale_detail->id }}</td>
+                                                        <td>{{ $sale_detail->product->name }}</td>
+                                                        <td>{{ $sale_detail->product->description }}</td>
+                                                        <td>{{ $sale_detail->quantity }}</td>
+                                                        <td align="right">{{ number_format($sale_detail->product->price,2) }}</td>
+                                                        <td align="right">{{ number_format($sale_detail->subtotal,2) }}</td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="clearfix m-t-20" align="center">
+                                            <h5 class="small text-inverse font-600">Mz. A2 - Lote 7 - Parque Industrial Telf.: 273908 - Cel.: 9623070</h5>
+                                            <h5 class="small text-inverse font-600">Av. España N° 240 - Telefax: (044)208667</h5>
+                                            <h5 class="small text-inverse font-600">TRUJILLO - PERÚ</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
+                                        <p class="text-right"><b>Sub-total: </b>S/ {{ number_format($total,2)}}</p>
+                                        <p class="text-right"><b>IGV(18%): </b>S/ {{ number_format($igv,2)}}</p>
+                                        <hr>
+                                        <h3 class="text-right">S/ {{ number_format($totalIgv,2)}}</h3>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="hidden-print">
+                                    <div class="pull-right">
+                                        <a href="/ventas" class="btn btn-primary waves-effect waves-light"> Volver</a>
+                                        <a href="javascript:window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print m-r-5"></i> Imprimir</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                         </div>
 
                     </div>

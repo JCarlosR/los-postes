@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    <a href="/ventas">Venta</a> > Crear
+    <a href="/productos-terminados">Lista de productos terminados</a> > Crear
 @endsection
 @section('content')
 
@@ -40,17 +40,8 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="nombre" class="control-label">Nombre o razon social</label>
-                                                <select class="form-control select2" name="client_id" required>
-                                                    <option>Seleccionar</option>
-                                                    @foreach($clients as $client)
-                                                        @if($client->type == 'N')
-                                                        <option value="{{ $client->id }}">{{ $client->name_complete }}</option>
-                                                        @elseif($client->type == 'J')
-                                                        <option value="{{ $client->id }}">{{ $client->business_name }}</option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
+                                                <label for="name">Encargado(a)</label>
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre" value="{{ old('name') }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -61,7 +52,7 @@
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <a href="/ventas" class="btn btn-inverse waves-effect waves-light">Volver</a>
+                                                <a href="/productos-terminados" class="btn btn-inverse waves-effect waves-light">Volver</a>
                                                 <button class="btn btn-primary waves-effect waves-light">Guardar</button>
                                             </div>
                                         </div>

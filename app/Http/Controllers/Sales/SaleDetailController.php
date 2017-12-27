@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Sales;
 
+use App\Product;
 use App\Sale;
 use App\SaleDetail;
 use Illuminate\Http\Request;
@@ -26,9 +27,20 @@ class SaleDetailController extends Controller
         $sale_detail->quantity = $request->input('quantity');
         $sale_detail->product_id = $request->input('product_id');
         $sale_detail->subtotal = $sale_detail->quantity * $sale_detail->product->price;
-        $sale_detail->save();
 
 
-        return back()->with('notification', 'Articulo agregado correctamente.');
+        $product_id = $request->input('product_id');
+
+        $product = Product::find($product_id);
+        //dd($article);
+        $product->stock = $product->stock - $request->input('quantity');
+        if ($product->stock < 0) {
+            return back()->with('notification', 'No hay stock suficiente.');
+        }
+        else {
+            $sale_detail->save();
+            $product->save();
+            return back()->with('notification', 'Producto agregado correctamente.');
+        }
     }
 }

@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->float('price');
+            $table->integer('stock')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

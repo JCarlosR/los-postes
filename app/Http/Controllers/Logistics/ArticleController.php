@@ -37,6 +37,7 @@ class ArticleController extends Controller
         $article->name = $request->input('name');
         $article->description = $request->input('description');
         $article->price = $request->input('price');
+        $article->stock = 0;
         $article->save();
 
         $notification = 'El artículo se ha registrado exitosamente.';
@@ -84,5 +85,11 @@ class ArticleController extends Controller
         $article->delete();
 
         return back()->with('notification', 'El articulo se ha eliminado correctamente.');
+    }
+
+    public function stock()
+    {
+        $articles = Article::all();
+        return view('Logistics.articles.stock')->with(compact('articles'));
     }
 }

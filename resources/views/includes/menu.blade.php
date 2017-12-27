@@ -9,7 +9,17 @@
             <ul class="list-unstyled">
                 <li><a href="/articulos">Artículos (materiales)</a></li>
                 <li><a href="/cotizacion">Cotización</a></li>
+                <li><a href="/hojas-cotizadas">Hojas cotizadas</a></li>
                 <li><a href="/orden-compra">Orden de compra</a></li>
+                <li><a href="/stock-articulos">Stock de artículos</a></li>
+
+            </ul>
+        </li>
+        <li class="has_sub">
+            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-assignment"></i> <span> Producción </span> <span class="menu-arrow"></span></a>
+            <ul class="list-unstyled">
+                <li><a href="/productos-terminados">Productos terminados</a></li>
+                <li><a href="/stock-productos">Stock de productos</a></li>
 
             </ul>
         </li>

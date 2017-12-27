@@ -39,7 +39,8 @@
                                     <thead>
                                     <tr>
                                         <th>Código</th>
-                                        <th>Nombre</th>
+                                        <th>Tipo de cliente</th>
+                                        <th>Nombre o razón social</th>
                                         <th>Fecha</th>
                                         <th>Acción</th>
                                     </tr>
@@ -48,8 +49,13 @@
                                     @foreach($sales as $sale)
                                     <tr>
                                         <td>{{ $sale->id }}</td>
-                                        <td>{{ $sale->client->name }}</td>
-                                        <td>{{ $sale->date }}</td>
+                                        <td>{{ $sale->client->type_name }}</td>
+                                        @if($sale->client->type == 'N')
+                                            <td>{{ $sale->client->name_complete }}</td>
+                                        @elseif($sale->client->type == 'J')
+                                            <td>{{ $sale->client->business_name }}</td>
+                                        @endif
+                                        <td>{{ $sale->date }}</td>4
                                         <td>
                                             <a href="/ventas/{{ $sale->id }}/detalles" class="btn btn-sm btn-warning" title="Ver detalles">
                                                 <i class="fa fa-wpforms"></i>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTable extends Migration
+class CreateQuotedSheetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('quoted_sheets', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->float('price');
-            $table->integer('stock')->nullable();
+            $table->string('registration_code');
+            $table->string('company_name');
+            $table->string('image')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
@@ -33,6 +32,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('quoted_sheets');
     }
 }
